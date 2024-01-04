@@ -8,7 +8,7 @@ on:
     branches: [main]
   schedule:
     - cron: "0 0 * * *"
-
+  workflow_dispatch:
 jobs:
   build:
     name: "EPUB & MOBI"
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.GRAHAM_ESSAYS }}"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           title: "Paul Graham Essays"
           files: |
